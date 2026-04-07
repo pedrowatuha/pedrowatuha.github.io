@@ -268,6 +268,70 @@
     .teach-role { font-size: 0.9rem; }
     .teach-date { font-size: 0.83rem; color: var(--muted); }
 
+    /* ── Course Materials card ── */
+    .course-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.2rem 0 0.8rem;
+      background: var(--bg);
+    }
+    .course-card h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+    }
+    .course-card .course-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .material-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .material-link {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .material-link:hover { background: var(--border); }
+    .material-link svg { flex-shrink: 0; }
+    .slides-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin: 0.6rem 0 0.35rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .slides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 0.4rem;
+    }
+    .slide-link {
+      display: block;
+      padding: 0.35rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.78rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .slide-link:hover { background: var(--border); color: var(--accent); }
+
     /* ── GitHub Projects ── */
     .repos-grid {
       display: grid;
@@ -543,6 +607,39 @@
   <!-- ── Teaching ── -->
   <section id="teaching">
     <h2>Teaching &amp; Mentoring</h2>
+
+    <!-- ── Course Materials ── -->
+    <div class="course-card">
+      <h3>Machine Learning &amp; Deep Learning</h3>
+      <div class="course-meta">FGV EPGE &mdash; Graduate Course &middot; 2026 &middot; Instructor: Pedro Watuhã dos Santos Guerra</div>
+
+      <div class="material-grid">
+        <a class="material-link" href="teaching/syllabus.pdf" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Syllabus
+        </a>
+        <a class="material-link" href="teaching/lecture_notes_EN.pdf" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Lecture Notes (EN)
+        </a>
+        <a class="material-link" href="teaching/notas_de_aula_PT.pdf" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Notas de Aula (PT)
+        </a>
+      </div>
+
+      <div class="slides-label">Lecture Slides</div>
+      <div class="slides-grid">
+        <a class="slide-link" href="teaching/Lecture1_Statistical_Learning.pdf" target="_blank" rel="noopener">1. Statistical Learning Theory</a>
+        <a class="slide-link" href="teaching/Lecture2_Linear_Regularized.pdf" target="_blank" rel="noopener">2. Linear &amp; Regularized Models</a>
+        <a class="slide-link" href="teaching/Lecture3_Random_Forests.pdf" target="_blank" rel="noopener">3. Random Forests</a>
+        <a class="slide-link" href="teaching/Lecture4_NeuralNetworks.pdf" target="_blank" rel="noopener">4. Neural Networks</a>
+        <a class="slide-link" href="teaching/Lecture5_VariationalInference.pdf" target="_blank" rel="noopener">5. Variational Inference</a>
+        <a class="slide-link" href="teaching/Lecture6_FlowMatching.pdf" target="_blank" rel="noopener">6. Flow Matching</a>
+        <a class="slide-link" href="teaching/Lecture7_Causality.pdf" target="_blank" rel="noopener">7. Causality</a>
+        <a class="slide-link" href="teaching/Lecture8_DML.pdf" target="_blank" rel="noopener">8. Double ML</a>
+      </div>
+    </div>
 
     <div class="teach-item">
       <span class="teach-role"><strong>Teaching Assistant</strong> &mdash; Calculus III &amp; Microeconomics I (Undergraduate)</span>
