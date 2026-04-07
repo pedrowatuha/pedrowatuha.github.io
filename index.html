@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedro Watuhã dos Santos Guerra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1a2a4a;
+      --accent: #2a5fa5;
+      --light:  #f8f9fb;
+      --border: #dde2ea;
+      --text:   #2c2c2c;
+      --muted:  #6b7280;
+      --max-w:  820px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: #fff;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.75rem 1rem;
+    }
+
+    nav a {
+      color: #c8d5ea;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #fff; }
+
+    /* ── Hero Header ── */
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 3.5rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.4rem;
+    }
+
+    header .subtitle {
+      font-size: 0.95rem;
+      color: #a8bdd8;
+      margin-bottom: 1.4rem;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1.4rem;
+      font-size: 0.85rem;
+    }
+
+    .contact-bar a {
+      color: #c8d5ea;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s;
+    }
+
+    .contact-bar a:hover { color: #fff; }
+
+    .contact-bar .icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    section {
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+    }
+
+    section:first-child {
+      border-top: none;
+      margin-top: 2.5rem;
+    }
+
+    h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    /* ── About ── */
+    #about p {
+      margin-bottom: 0.9rem;
+      color: var(--text);
+    }
+
+    /* ── Research ── */
+    .paper-list { list-style: none; }
+
+    .paper-list li {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .paper-list li:last-child { border-bottom: none; }
+
+    .paper-title {
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .paper-authors {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .paper-venue {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .badge-wip  { background: #fef3c7; color: #92400e; }
+    .badge-pub  { background: #d1fae5; color: #065f46; }
+
+    /* ── Education ── */
+    .edu-list { list-style: none; }
+
+    .edu-list li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0 1.2rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-list li:last-child { border-bottom: none; }
+
+    .edu-year { font-size: 0.83rem; color: var(--muted); padding-top: 0.1rem; }
+
+    .edu-degree { font-weight: 500; color: var(--navy); }
+    .edu-inst   { font-size: 0.9rem; color: var(--text); }
+    .edu-note   { font-size: 0.83rem; color: var(--muted); }
+
+    /* ── Experience ── */
+    .exp-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-title { font-weight: 500; color: var(--navy); }
+    .exp-date  { font-size: 0.83rem; color: var(--muted); white-space: nowrap; }
+
+    .exp-org   { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.45rem; }
+
+    .exp-item ul {
+      padding-left: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .exp-item ul li { margin-bottom: 0.25rem; }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+
+    .skill-card h3 {
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card p { font-size: 0.88rem; color: var(--text); }
+
+    /* ── Teaching ── */
+    .teach-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .teach-item:last-child { border-bottom: none; }
+
+    .teach-role { font-size: 0.9rem; }
+    .teach-date { font-size: 0.83rem; color: var(--muted); }
+
+    /* ── GitHub Projects ── */
+    .repos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .repo-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .repo-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(42,95,165,0.1);
+    }
+
+    .repo-name {
+      font-weight: 500;
+      color: var(--accent);
+      font-size: 0.92rem;
+      margin-bottom: 0.3rem;
+      word-break: break-word;
+    }
+
+    .repo-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .repo-lang {
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .lang-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f1e05a;
+      flex-shrink: 0;
+    }
+
+    .lang-dot.python { background: #3572A5; }
+    .lang-dot.r      { background: #198CE7; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 540px) {
+      header h1 { font-size: 1.75rem; }
+      .edu-list li { grid-template-columns: 1fr; gap: 0.1rem; }
+      .edu-year { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#teaching">Teaching</a>
+  <a href="#projects">Projects</a>
+</nav>
+
+<!-- Hero Header -->
+<header>
+  <h1>Pedro Watuhã dos Santos Guerra</h1>
+  <p class="subtitle">Ph.D. Candidate in Economics &middot; Getulio Vargas Foundation &middot; Visiting Scholar, University of Pittsburgh</p>
+  <div class="contact-bar">
+    <!-- Email -->
+    <a href="mailto:pedrowatuha@gmail.com">
+      <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      pedrowatuha@gmail.com
+    </a>
+    <!-- GitHub -->
+    <a href="https://github.com/pedrowatuha" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.19a11.06 11.06 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.67.8.56C20.71 21.38 24 17.08 24 12 24 5.73 18.27.5 12 .5z"/></svg>
+      pedrowatuha
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/pedro-watuh%C3%A3/" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      Pedro Watuhã
+    </a>
+    <!-- Phone -->
+    <a href="tel:+14125121389">
+      <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      +1 412 512 1389
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I am a Ph.D. candidate in Economics at the <strong>Getulio Vargas Foundation (FGV)</strong>, currently visiting the <strong>University of Pittsburgh</strong> hosted by Professor Mahrad Sharifvaghefi. My Ph.D. supervisor is Professor Marcelo Moreira.
+    </p>
+    <p>
+      My research lies at the intersection of <strong>econometrics, causal inference, and machine learning</strong>, with applications to finance and macroeconomics. I am particularly interested in weak identification, generative approaches to variable selection, and large language model methods applied to economic measurement.
+    </p>
+    <p>
+      Prior to my doctoral studies, I completed my Bachelor's degree in Economics at the <strong>University of Brasilia</strong>, where I also worked as a researcher at the Laboratory of Machine Learning (LAMFO) and supervised Professional Master's students on machine learning applications in finance.
+    </p>
+  </section>
+
+  <!-- ── Research ── -->
+  <section id="research">
+    <h2>Research</h2>
+    <ul class="paper-list">
+
+      <li>
+        <div class="paper-title">
+          <span class="badge badge-wip">Working Paper</span>
+          Generative Approach for Variable Selection
+        </div>
+        <div class="paper-authors">with Adriana W. Henarojos and Luiz F. Maia</div>
+        <div class="paper-venue">Work in Progress</div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          <span class="badge badge-wip">Working Paper</span>
+          A Novel Monetary Policy Shock: A Large Language Model Approach
+        </div>
+        <div class="paper-authors">with João Pedro Maia</div>
+        <div class="paper-venue">Work in Progress</div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          <span class="badge badge-pub">Published</span>
+          The Impact of the Coronavirus on Brazilian International Trade and Multilateral Globalization
+        </div>
+        <div class="paper-authors">
+          Dourado, F. S., M. R. T. Braga, <strong>P. W. S. Guerra</strong>, and V. D. A. N. Ferreira
+        </div>
+        <div class="paper-venue"><em>O Eco da Graduação</em>, vol. 6, 2021</div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ── Education ── -->
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="edu-list">
+
+      <li>
+        <div class="edu-year">2025 – 2026</div>
+        <div>
+          <div class="edu-degree">International Visitor</div>
+          <div class="edu-inst">University of Pittsburgh</div>
+          <div class="edu-note">Host: Prof. Mahrad Sharifvaghefi</div>
+        </div>
+      </li>
+
+      <li>
+        <div class="edu-year">2023 – 2027</div>
+        <div>
+          <div class="edu-degree">Ph.D. in Economics</div>
+          <div class="edu-inst">Getulio Vargas Foundation (FGV)</div>
+          <div class="edu-note">Supervisor: Prof. Marcelo Moreira</div>
+        </div>
+      </li>
+
+      <li>
+        <div class="edu-year">2019 – 2022</div>
+        <div>
+          <div class="edu-degree">Bachelor's Degree in Economics</div>
+          <div class="edu-inst">University of Brasilia (UnB)</div>
+          <div class="edu-note">Advisor: Prof. Maurício Bugarin</div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Research Assistant</span>
+        <span class="exp-date">Jun 2025 – Aug 2025</span>
+      </div>
+      <div class="exp-org">Getulio Vargas Foundation</div>
+      <ul>
+        <li>Implemented a novel matrix rank test for financial factor models and random effects models using large asset datasets in R and Stata.</li>
+        <li>Contributed to the paper "A No-Arbitrage Approach to Asset Pricing using Panel Data" (F. Araujo, A. F. Galvão, J. V. Isler).</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Research Assistant</span>
+        <span class="exp-date">May 2025 – Aug 2025</span>
+      </div>
+      <div class="exp-org">Getulio Vargas Foundation</div>
+      <ul>
+        <li>Implemented tests for weak instrumental variables in Python and Julia.</li>
+        <li>Built a dataset of IV-based economics papers (2020–2025) and replicated main empirical results for validation and application of the new proposed tests.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Researcher</span>
+        <span class="exp-date">Oct 2021 – Jul 2022</span>
+      </div>
+      <div class="exp-org">University of Brasilia</div>
+      <ul>
+        <li>Supervised Professional Master's students' theses on Machine Learning applications in Finance.</li>
+        <li>Revised and elaborated Python and R code for ML models used in bank risk classification for credit assessment and systemic risk evaluation from lending.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Research Assistant</span>
+        <span class="exp-date">Jul 2020 – Dec 2022</span>
+      </div>
+      <div class="exp-org">Laboratory of Machine Learning (LAMFO) &mdash; University of Brasilia</div>
+      <ul>
+        <li>Designed and delivered workshops on Natural Language Processing and Machine Learning.</li>
+        <li>Developed empirical applications and teaching materials in Python, R, and Stata.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Statistical &amp; Econometric</h3>
+        <p>Econometrics, Causal Inference, Predictive Machine Learning, Deep Learning</p>
+      </div>
+      <div class="skill-card">
+        <h3>Technical</h3>
+        <p>Python, R, Stata, LaTeX, PyTorch, Scikit-learn, Julia</p>
+      </div>
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <p>Portuguese (Native), English (Fluent), Spanish (Conversational)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Teaching ── -->
+  <section id="teaching">
+    <h2>Teaching &amp; Mentoring</h2>
+
+    <div class="teach-item">
+      <span class="teach-role"><strong>Teaching Assistant</strong> &mdash; Calculus III &amp; Microeconomics I (Undergraduate)</span>
+      <span class="teach-date">Spring 2025</span>
+    </div>
+
+    <div class="teach-item">
+      <span class="teach-role"><strong>Mentor</strong> &mdash; Professional Master's Dissertations</span>
+      <span class="teach-date">Oct 2021 – Jul 2022</span>
+    </div>
+
+    <div class="teach-item">
+      <span class="teach-role"><strong>Teaching Assistant</strong> &mdash; Quantitative Economics I (Undergraduate)</span>
+      <span class="teach-date">Spring 2020</span>
+    </div>
+
+  </section>
+
+  <!-- ── GitHub Projects ── -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="repos-grid">
+
+      <a class="repo-card" href="https://github.com/pedrowatuha/financial_network_percolation" target="_blank" rel="noopener">
+        <div class="repo-name">financial_network_percolation</div>
+        <div class="repo-desc">Financial network analysis using percolation theory.</div>
+        <div class="repo-lang"><span class="lang-dot"></span> Jupyter Notebook</div>
+      </a>
+
+      <a class="repo-card" href="https://github.com/pedrowatuha/corporate_finance_exercises" target="_blank" rel="noopener">
+        <div class="repo-name">corporate_finance_exercises</div>
+        <div class="repo-desc">Exercises and implementations in corporate finance.</div>
+        <div class="repo-lang"><span class="lang-dot r"></span> R / Jupyter Notebook</div>
+      </a>
+
+      <a class="repo-card" href="https://github.com/pedrowatuha/Autoencoders-for-denoising" target="_blank" rel="noopener">
+        <div class="repo-name">Autoencoders-for-denoising</div>
+        <div class="repo-desc">Deep learning autoencoders applied to signal denoising tasks.</div>
+        <div class="repo-lang"><span class="lang-dot python"></span> Python / Jupyter Notebook</div>
+      </a>
+
+      <a class="repo-card" href="https://github.com/pedrowatuha/Video_Game_Project" target="_blank" rel="noopener">
+        <div class="repo-name">Video_Game_Project</div>
+        <div class="repo-desc">Data analysis and modelling on video game datasets.</div>
+        <div class="repo-lang"><span class="lang-dot"></span> Jupyter Notebook</div>
+      </a>
+
+      <a class="repo-card" href="https://github.com/pedrowatuha/Impact-PIB-Commerce" target="_blank" rel="noopener">
+        <div class="repo-name">Impact-PIB-Commerce</div>
+        <div class="repo-desc">Empirical analysis of trade and GDP impact.</div>
+        <div class="repo-lang"><span class="lang-dot"></span> Jupyter Notebook</div>
+      </a>
+
+      <a class="repo-card" href="https://github.com/pedrowatuha/restaurant_revenue" target="_blank" rel="noopener">
+        <div class="repo-name">restaurant_revenue</div>
+        <div class="repo-desc">Predictive modelling of restaurant revenue data.</div>
+        <div class="repo-lang"><span class="lang-dot python"></span> Python</div>
+      </a>
+
+      <a class="repo-card" href="https://github.com/pedrowatuha/Final-Capstone-Project_ibm" target="_blank" rel="noopener">
+        <div class="repo-name">Final-Capstone-Project_ibm</div>
+        <div class="repo-desc">IBM Data Science Professional Certificate capstone project.</div>
+        <div class="repo-lang"><span class="lang-dot python"></span> Python / Jupyter Notebook</div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Pedro Watuhã dos Santos Guerra &mdash; Last updated April 2026</p>
+  <p style="margin-top:0.3rem">
+    <a href="https://github.com/pedrowatuha" target="_blank" rel="noopener" style="color:inherit">github.com/pedrowatuha</a>
+  </p>
+</footer>
+
+</body>
+</html>
